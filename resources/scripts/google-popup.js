@@ -54,9 +54,9 @@ setTimeout(() => {
         tdComment.innerText = comment
         tdRating.innerText = rating.toString()
 
-        tdMonth.setAttribute('style', "border: 1px solid black; font-family: Arial,serif; font-size: 10px;")
-        tdComment.setAttribute('style', "border: 1px solid black; font-family: Arial,serif; font-size: 10px;")
-        tdRating.setAttribute('style', "border: 1px solid black; font-family: Arial,serif; font-size: 10px;")
+        tdMonth.setAttribute('style', "border: 1px solid black; font-family: Arial,serif; font-size: 12px;")
+        tdComment.setAttribute('style', "border: 1px solid black; font-family: Arial,serif; font-size: 12px;")
+        tdRating.setAttribute('style', "border: 1px solid black; font-family: Arial,serif; font-size: 12px;")
 
         tr.appendChild(tdMonth)
         tr.appendChild(tdComment)
@@ -70,7 +70,18 @@ setTimeout(() => {
 
     divPopup.appendChild(toggleButton)
     divPopup.appendChild(table)
-    divPopup.setAttribute('style', 'color: #000; position: absolute; background-color: #9abbb0; top: 0; left: 0; height:95vh; right: 0; z-index: 1000; overflow-y: scroll; padding: 10px;')
+    divPopup.setAttribute('style', `
+        color: #000; 
+        position: absolute; 
+        background-color: #9abbb0; 
+        top: 0; 
+        left: 0; 
+        height:95vh; 
+        right: 0; 
+        z-index: 1000; 
+        overflow-y: scroll; 
+        padding: 10px;
+    `)
     const parent = document.body
     parent.appendChild(divPopup)
 
