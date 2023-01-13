@@ -4,7 +4,7 @@ import * as process from 'process';
 import fs from 'fs'
 import * as path from 'path';
 import { AutomateData } from './types';
-import {execFile} from 'child_process'
+import { execFile } from 'child_process'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import findChromeVersion from 'find-chrome-version'
@@ -38,10 +38,10 @@ const createWindow = async () => {
     // driver ----------------------------------------------------------------------------------------
 
     let chromeVersion = await findChromeVersion()
-     chromeVersion = chromeVersion.split('.')[0]
+    chromeVersion = chromeVersion.split('.')[0]
 
     const executablePath = path.join(process.cwd(), `resources/chromedriver/${chromeVersion}.exe`)
-    execFile(executablePath,[], (error) => {
+    execFile(executablePath, [], (error) => {
         if (error) {
             throw error;
         }
@@ -57,12 +57,8 @@ const createWindow = async () => {
 
         const scriptPath = path.join(process.cwd(), 'resources/scripts/' + data.website + '.js')
         const script = fs.readFileSync(scriptPath, 'utf8')
-        try {
-            driver.get(data.url)
-            driver.executeScript(script)
-        }catch (e) {
-            throw Error('Error: Maybe the automated browser is closed')
-        }
+        driver.get(data.url)
+        driver.executeScript(script)
 
     })
     //  selenium end -----------------------------------------------------------------------------------
