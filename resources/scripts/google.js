@@ -24,9 +24,11 @@ const table = document.createElement('table')
 const numberOfResult = document.createElement('p')
 const generate = () => {
 
+    table.replaceChildren()
+
     const readMore = document.getElementsByClassName('TJUuge')
     for (let i = 0; i < readMore.length; i++) {
-        readMore[i].click()
+        if (readMore[i].innerText.includes('Read more')) readMore[i].click()
     }
 
     var resultCount = 0
